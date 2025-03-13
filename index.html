@@ -136,6 +136,18 @@
       
 
 
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分類</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/WriteUp/">
+                WriteUp
+                <div class="category-count">1</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
 
     
       
@@ -149,7 +161,7 @@
    
 
 
-<article id="post-ns24_week1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-newstar_24_wp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -160,7 +172,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/11/04/ns24_week1/">NewStarCTF 2024 WriteUp</a>
+        <a class="p-name article-title" href="/2024/11/04/newstar_24_wp/">NewStarCTF 2024 WriteUp</a>
       </h1>
     
   
@@ -173,13 +185,13 @@
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    Uncategorized 
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k words 
+            40k 詞 
           </div>
         </div>
         
@@ -190,7 +202,6 @@
             
               注：这是我第一次参加CTF，初来乍到，当时的许多表达、做法放在现在看都是不专业甚至可笑的，就当做黑历史吧…
 赛题轮次：Week1已解出的题目：
-
 
 
 题目类型
@@ -219,7 +230,7 @@ WhereIsFlag、Labyrinth、decompress、pleasingMusic、兑换码
 
 
 Pwn方向：Real Login：反编译观察函数，发现要输入密码，找到密码是NewStar!!!，观察发现没有位数溢出保护机制，在虚拟机中nc地址后输入NewStar!!!+大量额外字符弹出祝贺，此时已经成功，用ls指令查看文件发现有一个flag，再用cat查看得到flag{6a532e27-a281-4c15-b965-c030de9c47df}.
-Game：反编译观察函数，...
+Game：反编译观察函数，发...
             
           </div>
         
@@ -231,7 +242,7 @@ Game：反编译观察函数，...
      
     <a class="right-panel  non-pic  "
       
-      href="/2024/11/04/ns24_week1/" 
+      href="/2024/11/04/newstar_24_wp/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
