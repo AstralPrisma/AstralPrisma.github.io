@@ -149,7 +149,7 @@
    
 
 
-<article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-ns24_week1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -160,7 +160,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/03/12/hello-world/">Hello World</a>
+        <a class="p-name article-title" href="/2024/11/04/ns24_week1/">NewStarCTF 2024 WriteUp</a>
       </h1>
     
   
@@ -168,18 +168,18 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2025-03-12T14:19:54.943Z" itemprop="datePublished">2025-03-12</time>
+  <time class="dt-published" datetime="2024-11-03T16:00:00.000Z" itemprop="datePublished">2024-11-04</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    未分类 
+    Uncategorized 
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            367 词 
+            12k words 
           </div>
         </div>
         
@@ -188,20 +188,38 @@
         
           <div class="truncate-text">
             
-              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+              注：这是我第一次参加CTF，初来乍到，当时的许多表达、做法放在现在看都是不专业甚至可笑的，就当做黑历史吧…
+赛题轮次：Week1已解出的题目：
 
-More info: Writing
-Run server1$ hexo server
 
-More info: Server
-Generate static files1$ hexo generate
 
-More info: Generating
-Deploy to remote sites1$ hexo deploy
+题目类型
+题目名称
 
-More info: Deployment
 
+
+Pwn
+Real Login、Game、overwrite、gdb
+
+
+Reverse
+base64、ezAndroidStudy、Simple_encryption、ez_debug、begin
+
+
+Web
+headach3、会赢吗、智械危机
+
+
+Crypto
+xor、Base、一眼秒了、Strange King
+
+
+Misc
+WhereIsFlag、Labyrinth、decompress、pleasingMusic、兑换码
+
+
+Pwn方向：Real Login：反编译观察函数，发现要输入密码，找到密码是NewStar!!!，观察发现没有位数溢出保护机制，在虚拟机中nc地址后输入NewStar!!!+大量额外字符弹出祝贺，此时已经成功，用ls指令查看文件发现有一个flag，再用cat查看得到flag{6a532e27-a281-4c15-b965-c030de9c47df}.
+Game：反编译观察函数，...
             
           </div>
         
@@ -213,7 +231,7 @@ More info: Deployment
      
     <a class="right-panel  non-pic  "
       
-      href="/2025/03/12/hello-world/" 
+      href="/2024/11/04/ns24_week1/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
