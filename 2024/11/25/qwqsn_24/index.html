@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>强网杯青少年专项选拔赛 2024 Reverse方向 WriteUp | 棱晶の小窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="这两道题还是挺简单的. EnterGame：反编译观察main函数： 1234567891011121314151617181920212223242526272829303132333435int __fastcall main(int argc, const char **argv, const char **envp)&#123;  int v3; &#x2F;&#x2F; eax  int v5[10]; &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强网杯青少年专项选拔赛 2024 Reverse方向 WriteUp">
+<meta property="og:url" content="https://astralprisma.github.io/2024/11/25/qwqsn_24/index.html">
+<meta property="og:site_name" content="棱晶の小窝">
+<meta property="og:description" content="这两道题还是挺简单的. EnterGame：反编译观察main函数： 1234567891011121314151617181920212223242526272829303132333435int __fastcall main(int argc, const char **argv, const char **envp)&#123;  int v3; &#x2F;&#x2F; eax  int v5[10]; &#x2F;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-11-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-16T05:35:49.588Z">
+<meta property="article:author" content="Astral Prisma">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="shortcut icon" href="/XH.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/OTSA.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>棱晶の小窝 </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/AP.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Astral Prisma </div>
+      <div class="dot"></div>
+      <div class="subtitle">星界棱晶 </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/454936579" title="Bilibili"><image src=https://www.bilibili.com/favicon.ico></image></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://www.primegrid.com/show_user.php?userid=1243718" title="PrimeGrid"><image src=https://www.primegrid.com/images/favicon_32.png></image></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/AstralPrisma" title="GitHub"><image src=https://github.githubassets.com/favicons/favicon.png></image></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/WriteUp/">
+                WriteUp
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-qwqsn_24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        强网杯青少年专项选拔赛 2024 Reverse方向 WriteUp
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-11-24T16:00:00.000Z" itemprop="datePublished">2024-11-25</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            741 words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>这两道题还是挺简单的.</p>
+<h3 id="EnterGame："><a href="#EnterGame：" class="headerlink" title="EnterGame："></a>EnterGame：</h3><p>反编译观察main函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> __fastcall <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> **argv, <span class="type">const</span> <span class="type">char</span> **envp)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> v3; <span class="comment">// eax</span></span><br><span class="line">  <span class="type">int</span> v5[<span class="number">10</span>]; <span class="comment">// [rsp+8h] [rbp-138h] BYREF</span></span><br><span class="line">  __int64 s2[<span class="number">2</span>]; <span class="comment">// [rsp+30h] [rbp-110h] BYREF</span></span><br><span class="line">  __int64 v7[<span class="number">4</span>]; <span class="comment">// [rsp+40h] [rbp-100h] BYREF</span></span><br><span class="line">  <span class="type">char</span> s[<span class="number">112</span>]; <span class="comment">// [rsp+60h] [rbp-E0h] BYREF</span></span><br><span class="line">  <span class="type">char</span> s1[<span class="number">104</span>]; <span class="comment">// [rsp+D0h] [rbp-70h] BYREF</span></span><br><span class="line">  <span class="type">unsigned</span> __int64 v10; <span class="comment">// [rsp+138h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v10 = __readfsqword(<span class="number">0x28u</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Welcome to the Youth Cybersecurity Challenge!&quot;</span>);</span><br><span class="line">  s2[<span class="number">0</span>] = <span class="number">0x7A2B7587D3AA135EL</span>L;</span><br><span class="line">  s2[<span class="number">1</span>] = <span class="number">0xD21D7E49A304161BL</span>L;</span><br><span class="line">  qmemcpy(v7, <span class="string">&quot;k]X@^DcYHQ\rT^XUX瓊&quot;</span>, <span class="number">17</span>);</span><br><span class="line">  *(__int64 *)((<span class="type">char</span> *)&amp;v7[<span class="number">2</span>] + <span class="number">2</span>) = <span class="number">0xC1CE5D58ABE7DCAFL</span>L;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Please enter the password to start the game:&quot;</span>);</span><br><span class="line">  fgets(s, <span class="number">100</span>, _bss_start);</span><br><span class="line">  s[<span class="built_in">strcspn</span>(s, <span class="string">&quot;\n&quot;</span>)] = <span class="number">0</span>;</span><br><span class="line">  BYTE1(v5[<span class="number">9</span>]) = <span class="number">0</span>;</span><br><span class="line">  HIWORD(v5[<span class="number">9</span>]) = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">strcpy</span>((<span class="type">char</span> *)v5, <span class="string">&quot;01234567Youth Strengthens the Nation&quot;</span>);</span><br><span class="line">  v3 = <span class="built_in">strlen</span>(s);</span><br><span class="line">  chacha20_encrypt(&amp;v5[<span class="number">2</span>], v5, (__int64)s, (__int64)s1, v3); <span class="comment">//加密算法为chacha20</span></span><br><span class="line">  <span class="keyword">if</span> ( !<span class="built_in">memcmp</span>(s1, s2, <span class="number">0x2Au</span>LL) ) <span class="comment">//比较42位</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Password correct, you may start the game.&quot;</span>);</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;With my strength, I secure the cyber frontier!&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;Incorrect password, cannot start the game.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经过动态调试找到s2（加密的flag）为<font color=lime><strong>[0x5e, 0x13, 0xaa, 0xd3, 0x87, 0x75, 0x2b, 0x7a, 0x1b, 0x16, 0x04, 0xa3, 0x49, 0x7e, 0x1d, 0xd2, 0x6b, 0x5d, 0x58, 0x40, 0x5e, 0x44, 0x63, 0x59, 0x48, 0x51, 0x0d, 0x54, 0x5e, 0x58, 0x55, 0x58, 0xad, 0x82, 0xaf, 0xdc, 0xe7, 0xab, 0x58, 0x5d, 0xce, 0xc1]</strong></font>，观察加密函数发现为修改的chacha20加密，但chacha20是对称加密，所以在动态调试的时候输入42个随机字符，并在加密前patch为密文，加密过程其实也就是解密过程了，得到flag：<font color=deepskyblue><strong>flag{385915ad-8f32-49d0-94c3-0067f1dad1bd}</strong></font>.</p>
+<h3 id="Flip-over："><a href="#Flip-over：" class="headerlink" title="Flip_over："></a>Flip_over：</h3><p>jadx反编译查看<code>mainactivity</code>和<code>flipgameactivity</code>，发现是要在main中先输入一次账户密码过了才能进入获取flag的flipactivity部分，而两个的具体验证方法均在so文件中，于是反编译so文件，发现第一层输入账户密码与flag并没有关系，直接查看第二层的<code>validateAndEncrypt</code>，发现要输入的是一个42长度的以flag{开头，}结尾的字符串，然后会先对v16那个字符串进行以<font color=red><strong>flag</strong></font>为key的rc4加密，再进行以<font color=red><strong>flagflag</strong></font>为key的des_ecb加密，输出的结果存储在v15，然后将输入的字符串和0x21再和v15逐个异或，再与v11比较，首先将v16（<code>a4c3f8927d9b8e6d6e483fa2cd0193b0a6e2f19c8b47d5a8f3c7a91e8d4b9f67</code>）进行rc4加密得到<br><code>8ec4b73aadde72028d3dec3a48eade0afff5125de25cc7da484902f82f6aa39b0387f09442b6c1de39f5568e3e6804ab764adf01bca851051a48781747f262d0</code>，再进行des_ecb加密得到<code>5915c13f409a7ae7a68bb6e3ee0d196db76dcae6da5f0d4bd60ab2deadaa95eb85b777c310bbcfcef7d222c9c4f9fcfbab32ea318155af79528e80afc3186050f1d840bbfc1b89a6</code>，查看v11发现只有两个xmmword（32字节），再仔细观察发现其下游还有v12（8字节）和v13（4字节），补全后用python脚本解得flag：<font color=deepskyblue><strong>flag{b92d40df-840a-43a8-bdb4-5de79eca13f4}</strong></font>.<br><br><br>Python脚本：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">v15 = [<span class="number">0x59</span>, <span class="number">0x15</span>, <span class="number">0xc1</span>, <span class="number">0x3f</span>, <span class="number">0x40</span>, <span class="number">0x9a</span>, <span class="number">0x7a</span>, <span class="number">0xe7</span>, <span class="number">0xa6</span>, <span class="number">0x8b</span>, <span class="number">0xb6</span>, <span class="number">0xe3</span>, <span class="number">0xee</span>, <span class="number">0x0d</span>, <span class="number">0x19</span>, <span class="number">0x6d</span>, <span class="number">0xb7</span>, <span class="number">0x6d</span>, <span class="number">0xca</span>, <span class="number">0xe6</span>, <span class="number">0xda</span>, <span class="number">0x5f</span>, <span class="number">0x0d</span>, <span class="number">0x4b</span>, <span class="number">0xd6</span>, <span class="number">0x0a</span>, <span class="number">0xb2</span>, <span class="number">0xde</span>, <span class="number">0xad</span>, <span class="number">0xaa</span>, <span class="number">0x95</span>, <span class="number">0xeb</span>, <span class="number">0x85</span>, <span class="number">0xb7</span>, <span class="number">0x77</span>, <span class="number">0xc3</span>, <span class="number">0x10</span>, <span class="number">0xbb</span>, <span class="number">0xcf</span>, <span class="number">0xce</span>, <span class="number">0xf7</span>, <span class="number">0xd2</span>, <span class="number">0x22</span>, <span class="number">0xc9</span>, <span class="number">0xc4</span>, <span class="number">0xf9</span>, <span class="number">0xfc</span>, <span class="number">0xfb</span>, <span class="number">0xab</span>, <span class="number">0x32</span>, <span class="number">0xea</span>, <span class="number">0x31</span>, <span class="number">0x81</span>, <span class="number">0x55</span>, <span class="number">0xaf</span>, <span class="number">0x79</span>, <span class="number">0x52</span>, <span class="number">0x8e</span>, <span class="number">0x80</span>, <span class="number">0xaf</span>, <span class="number">0xc3</span>, <span class="number">0x18</span>, <span class="number">0x60</span>, <span class="number">0x50</span>, <span class="number">0xf1</span>, <span class="number">0xd8</span>, <span class="number">0x40</span>, <span class="number">0xbb</span>, <span class="number">0xfc</span>, <span class="number">0x1b</span>, <span class="number">0x89</span>, <span class="number">0xa6</span>]</span><br><span class="line">v11 = [<span class="number">0x1E</span>, <span class="number">0x58</span>, <span class="number">0x81</span>, <span class="number">0x79</span>, <span class="number">0x1A</span>, <span class="number">0xD9</span>, <span class="number">0x62</span>, <span class="number">0xF4</span>, <span class="number">0xE3</span>, <span class="number">0x9E</span>, <span class="number">0xA7</span>, <span class="number">0xA6</span>, <span class="number">0xA9</span>, <span class="number">0x01</span>, <span class="number">0x00</span>, <span class="number">0x78</span>, <span class="number">0xA6</span>, <span class="number">0x2D</span>, <span class="number">0xC6</span>, <span class="number">0xF3</span>, <span class="number">0xC8</span>, <span class="number">0x1F</span>, <span class="number">0x14</span>, <span class="number">0x47</span>, <span class="number">0x95</span>, <span class="number">0x4F</span>, <span class="number">0xF1</span>, <span class="number">0xCB</span>, <span class="number">0xA1</span>, <span class="number">0xBE</span>, <span class="number">0xD0</span>, <span class="number">0xAF</span>, <span class="number">0x93</span>, <span class="number">0xAF</span>, <span class="number">0x33</span>, <span class="number">0x81</span>, <span class="number">0x50</span>, <span class="number">0xAB</span>, <span class="number">0xDD</span>, <span class="number">0x89</span>, <span class="number">0xE2</span>, <span class="number">0x8E</span>]</span><br><span class="line">flag = [<span class="literal">None</span>]*<span class="number">42</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">42</span>):</span><br><span class="line">    flag[i] = v11[i] ^ v15[i] ^ <span class="number">0x21</span></span><br><span class="line">hex_flag = [<span class="built_in">hex</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> flag]</span><br><span class="line"><span class="built_in">print</span>(hex_flag)</span><br></pre></td></tr></table></figure>
+
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/11/04/newstar_24_wp/"
+      title="NewStarCTF 2024 WriteUp"
+     >
+
+    <p class="title-text">
+      
+        NewStarCTF 2024 WriteUp
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+    &copy; 2025 Astral Prisma<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
