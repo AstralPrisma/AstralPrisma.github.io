@@ -142,7 +142,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">3</div>
+                <div class="category-count">4</div>
             </a>
         </div>
     </div>
@@ -212,6 +212,72 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
     <a class="right-panel  non-pic  "
       
       href="/2025/03/16/nssctf_round27/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
+<article id="post-hectf_24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/12/09/hectf_24/">HECTF 2024 WriteUp</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-12-08T16:00:00.000Z" itemprop="datePublished">2024-12-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            6.7k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            刚出新手村后正经打的第一场个人赛，单就re方向来说感觉难度还行？
+Reverse方向：babyre：反编译观察主函数：
+12345678910111213141516171819202122232425262728293031__int64 __fastcall main(int a1, char **a2, char **a3)&#123;  __int64 v3; // rdx  __int64 v4; // rdx  char v6[32]; // [rsp+0h] [rbp-A0h] BYREF  char v7[32]; // [rsp+20h] [rbp-80h] BYREF  char v8[32]; // [rsp+40h] [rbp-60h] BYREF  char v9[40]; // [rsp+60h] [rbp-40h] BYREF  unsigned __int64 v10; // [rsp+88h] [rbp-18h]  v10 = __readfsqword(0x28u);  std::string::basic_string(v6, a2, a3)...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/12/09/hectf_24/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
