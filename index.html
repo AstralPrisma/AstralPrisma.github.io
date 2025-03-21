@@ -138,11 +138,11 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Categories</h3>
+      <h3 class="widget-title">分類</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">7</div>
+                <div class="category-count">8</div>
             </a>
         </div>
     </div>
@@ -190,7 +190,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2k words 
+            2k 詞 
           </div>
         </div>
         
@@ -212,6 +212,73 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
     <a class="right-panel  non-pic  "
       
       href="/2025/03/16/nssctf_round27/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
+<article id="post-npcctf_25" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/03/11/npcctf_25/">NPC²CTF 2025 WriteUp</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-03-10T16:00:00.000Z" itemprop="datePublished">2025-03-11</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            31k 詞 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            自从newstar之后已经好久没见过持续时间这么长的比赛了，比赛题目还是有难度的，不过最后费了一些劲还是AK了所有的Reverse、第二周的misc和crypto。
+Crypto方向：river：由于是对称加密，直接将密文回带就可以得到明文，十六进制转换得到flag{two_dift3rs_0ff_t0_s33_th3_w0rld}.
+全网呼叫密码人：如脚本所示：
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849from Crypto.Util.number import *import gmpy2#第一部分：凯撒加密flag1 = bytearray(b&quot;dj_ey//)&quot;)for i in range(len(flag1)):    flag1[i] += 2#第二部分：维尼吉亚密码（在线求解，https://www.guballa.de/vigenere-solver，密码为crypto）flag2 = bytearray(b...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/03/11/npcctf_25/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -256,7 +323,7 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k words 
+            12k 詞 
           </div>
         </div>
         
@@ -324,7 +391,7 @@ Misc方向：Hakuya Want A Girl Friend：打开txt发现是每个字节的ASCII�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.6k words 
+            5.6k 詞 
           </div>
         </div>
         
@@ -390,7 +457,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            7.7k words 
+            7.7k 詞 
           </div>
         </div>
         
@@ -456,7 +523,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.7k words 
+            6.7k 詞 
           </div>
         </div>
         
@@ -522,7 +589,7 @@ Reverse方向：babyre：反编译观察主函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            741 words 
+            741 詞 
           </div>
         </div>
         
@@ -588,7 +655,7 @@ EnterGame：反编译观察main函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            28k words 
+            28k 詞 
           </div>
         </div>
         
