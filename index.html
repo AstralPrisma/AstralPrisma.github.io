@@ -138,11 +138,11 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">分類</h3>
+      <h3 class="widget-title">Categories</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">8</div>
+                <div class="category-count">9</div>
             </a>
         </div>
     </div>
@@ -190,7 +190,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2k 詞 
+            2k words 
           </div>
         </div>
         
@@ -256,7 +256,7 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            31k 詞 
+            31k words 
           </div>
         </div>
         
@@ -279,6 +279,72 @@ Crypto方向：river：由于是对称加密，直接将密文回带就可以得
     <a class="right-panel  non-pic  "
       
       href="/2025/03/11/npcctf_25/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
+<article id="post-ghctf_25" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/03/09/ghctf_25/">GHCTF 2025 WriteUp</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-03-08T16:00:00.000Z" itemprop="datePublished">2025-03-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            9.2k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            这比赛3.2就开始了，我们当时没有听说，3.6才知道的，不过最后还是取得了不错的成绩.在这里仅给出我个人解出的题目的WriteUp.
+Reverse方向：ASM?Signin!：编写解密脚本：
+123456789101112131415161718192021222324252627282930313233343536373839404142data1 = [    0x26, 0x27, 0x24, 0x25, 0x2A, 0x2B, 0x28, 0x00,    0x2E, 0x2F, 0x2C, 0x2D, 0x32, 0x33, 0x30, 0x00,    0x36, 0x37, 0x34, 0x35, 0x3A, 0x3B, 0x38, 0x39,    0x3E, 0x3F, 0x3C, 0x3D, 0x3F, 0x27, 0x34, 0x11]blocks = [data1[i*4:(i+1)*4] for i in range(8)]for i in range(8):    si = i * 4    di = si + 4    if di &gt;= 28...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/03/09/ghctf_25/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -323,7 +389,7 @@ Crypto方向：river：由于是对称加密，直接将密文回带就可以得
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k 詞 
+            12k words 
           </div>
         </div>
         
@@ -391,7 +457,7 @@ Misc方向：Hakuya Want A Girl Friend：打开txt发现是每个字节的ASCII�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.6k 詞 
+            5.6k words 
           </div>
         </div>
         
@@ -457,7 +523,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            7.7k 詞 
+            7.7k words 
           </div>
         </div>
         
@@ -523,7 +589,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.7k 詞 
+            6.7k words 
           </div>
         </div>
         
@@ -589,7 +655,7 @@ Reverse方向：babyre：反编译观察主函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            741 詞 
+            741 words 
           </div>
         </div>
         
@@ -655,7 +721,7 @@ EnterGame：反编译观察main函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            28k 詞 
+            28k words 
           </div>
         </div>
         
