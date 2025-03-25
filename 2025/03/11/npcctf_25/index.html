@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://astralprisma.github.io/source/pictures/npc25_mtp2.png">
 <meta property="og:image" content="https://astralprisma.github.io/source/pictures/npc25_mtp3.png">
 <meta property="article:published_time" content="2025-03-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-21T08:36:03.047Z">
+<meta property="article:modified_time" content="2025-03-23T16:45:17.902Z">
 <meta property="article:author" content="Astral Prisma">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://astralprisma.github.io/source/pictures/npc25_mtp1.png">
@@ -148,7 +148,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">9</div>
+                <div class="category-count">10</div>
             </a>
         </div>
     </div>
@@ -225,11 +225,7 @@
 
 <p><font color=deepskyblue><strong>flag{Stand_up,gaL1op_on,N07h1ng_c4n_Be_dOne_by_f33l1nG_5o_5ORry_for_y0ursE1f}</strong></font>.</p>
 <h2 id="MTP-again："><a href="#MTP-again：" class="headerlink" title="MTP again："></a>MTP again：</h2><p>观察发现，flag是与和自己一样长度的随机OTP进行了8倍于自己长度的异或，flag原长度为70字节，共计560个二进制位，而密文也有560个，且注意到加密所用到的密钥被严格要求汉明重量为自身长度的一半（即对于560个二进制位，其中有280个1，280个0），则有以下关系：</p>
-<ol>
-<li>HammingWeight(OTP<sub>0</sub>~<sub>560</sub>) &#x3D; 280</li>
-<li>由于异或本身的自反性，enc &#x3D; flag ^ OTP  ⇒  OTP &#x3D; flag ^ enc</li>
-<li>HammingWeight(flag ^ enc<sub>0<del>560</sub>) &#x3D; HammingWeight(OTP<sub>0</sub></del><sub>560</sub>) &#x3D; 280</li>
-</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. HammingWeight(OTP0~560) = 280</span><br><span class="line">2. 由于异或本身的自反性，enc = flag ^ OTP  ⇒  OTP = flag ^ enc</span><br><span class="line">3. HammingWeight(flag ^ enc0~560) = HammingWeight(OTP0~560) = 280</span><br></pre></td></tr></table></figure>
 <p>有：</p>
 <p><img src="/pictures/npc25_mtp1.png" title="mtp1"><br></p>
 <p>又因为异或满足性质：</p>
