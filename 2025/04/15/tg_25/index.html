@@ -14,21 +14,21 @@
   
 
   
-  <title>TGCTF 2025 WriteUp（个人解出部分） | 棱晶の小窝</title>
+  <title>TGCTF 2025 WriteUp | 棱晶の小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Crypto方向：费克特尔：直接上factordb分解n即可 12345678910from Crypto.Util.number import *c&#x3D;670610235999012099846283721569059674725712804950807955010725968103642359765806n&#x3D;81054462466121336796499689506081535497288989">
+  <meta name="description" content="个人感觉reverse题目里面解数最少的index反而不是最阴间的，起码没有conforand阴间在这里仅给出我个人解出的题目的WriteUp. Crypto方向：费克特尔：直接上factordb分解n即可 12345678910from Crypto.Util.number import *c&#x3D;670610235999012099846283721569059674725712804950807">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TGCTF 2025 WriteUp（个人解出部分）">
+<meta property="og:title" content="TGCTF 2025 WriteUp">
 <meta property="og:url" content="https://astralprisma.github.io/2025/04/15/tg_25/index.html">
 <meta property="og:site_name" content="棱晶の小窝">
-<meta property="og:description" content="Crypto方向：费克特尔：直接上factordb分解n即可 12345678910from Crypto.Util.number import *c&#x3D;670610235999012099846283721569059674725712804950807955010725968103642359765806n&#x3D;81054462466121336796499689506081535497288989">
+<meta property="og:description" content="个人感觉reverse题目里面解数最少的index反而不是最阴间的，起码没有conforand阴间在这里仅给出我个人解出的题目的WriteUp. Crypto方向：费克特尔：直接上factordb分解n即可 12345678910from Crypto.Util.number import *c&#x3D;670610235999012099846283721569059674725712804950807">
 <meta property="og:locale">
 <meta property="article:published_time" content="2025-04-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-14T17:29:28.137Z">
+<meta property="article:modified_time" content="2025-04-20T19:21:43.331Z">
 <meta property="article:author" content="Astral Prisma">
 <meta name="twitter:card" content="summary">
   
@@ -174,7 +174,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        TGCTF 2025 WriteUp（个人解出部分）
+        TGCTF 2025 WriteUp
       </h1>
     
   
@@ -200,7 +200,8 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="Crypto方向："><a href="#Crypto方向：" class="headerlink" title="Crypto方向："></a>Crypto方向：</h1><h2 id="费克特尔："><a href="#费克特尔：" class="headerlink" title="费克特尔："></a>费克特尔：</h2><p>直接上factordb分解n即可</p>
+          <p><em>个人感觉reverse题目里面解数最少的index反而不是最阴间的，起码没有conforand阴间</em><br><br><em>在这里仅给出我个人解出的题目的WriteUp.</em></p>
+<h1 id="Crypto方向："><a href="#Crypto方向：" class="headerlink" title="Crypto方向："></a>Crypto方向：</h1><h2 id="费克特尔："><a href="#费克特尔：" class="headerlink" title="费克特尔："></a>费克特尔：</h2><p>直接上factordb分解n即可</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line">c=<span class="number">670610235999012099846283721569059674725712804950807955010725968103642359765806</span></span><br><span class="line">n=<span class="number">810544624661213367964996895060815354972889892659483948276203088055391907479553</span></span><br><span class="line">e=<span class="number">65537</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">113</span> * <span class="number">18251</span> * <span class="number">2001511</span> * <span class="number">214168842768662180574654641</span> * <span class="number">916848439436544911290378588839845528581</span></span><br><span class="line">phin = <span class="number">112</span> * <span class="number">18250</span> * <span class="number">2001510</span> * <span class="number">214168842768662180574654640</span> * <span class="number">916848439436544911290378588839845528580</span></span><br><span class="line">d = inverse(e, phin)</span><br><span class="line">m = <span class="built_in">pow</span>(c, d, n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m).decode())</span><br></pre></td></tr></table></figure>
 <p><font color=deepskyblue><strong>TGCTF{f4888_6abdc_9c2bd_9036bb}</strong></font>.</p>
 <h2 id="宝宝rsa："><a href="#宝宝rsa：" class="headerlink" title="宝宝rsa："></a>宝宝rsa：</h2><p>前半段爆破e，后半段直接开方</p>
@@ -322,7 +323,7 @@
 <p>编写脚本解密：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="type">char</span> output[<span class="number">33</span>] = <span class="string">&quot;Z49H539c&#123;--6&#125;d4888bTUCf8NeFe--e9&quot;</span>;</span><br><span class="line">    <span class="type">char</span> input[<span class="number">33</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mapping[<span class="number">32</span>] = &#123;</span><br><span class="line">        <span class="number">3</span>, <span class="number">0</span>, <span class="number">24</span>, <span class="number">20</span>, <span class="number">21</span>, <span class="number">19</span>, <span class="number">26</span>, <span class="number">8</span>,</span><br><span class="line">        <span class="number">22</span>, <span class="number">17</span>, <span class="number">31</span>, <span class="number">15</span>, <span class="number">9</span>, <span class="number">13</span>, <span class="number">25</span>, <span class="number">23</span>,</span><br><span class="line">        <span class="number">4</span>, <span class="number">10</span>, <span class="number">14</span>, <span class="number">11</span>, <span class="number">30</span>, <span class="number">28</span>, <span class="number">6</span>, <span class="number">27</span>,</span><br><span class="line">        <span class="number">1</span>, <span class="number">5</span>, <span class="number">29</span>, <span class="number">18</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">16</span>, <span class="number">12</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">32</span>; i++) &#123;</span><br><span class="line">        input[i] = output[mapping[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    input[<span class="number">32</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, input);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><font color=deepskyblue><strong>HZNUCTF{f898-de85-46e-9e43-b9c8}</strong></font>.</p>
-<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>本次比赛废了很大劲终于把re ak了…<br><br>对三道压轴题的评价：<br><br>conforand是真的<font color=red><strong>辣</strong></font><font color=orange><strong>眼</strong></font><font color=yellow><strong>睛</strong></font><br><br>exchange的patch call解密函数实际上是非预期，不过魔改DES我是真逆不太动（x）<br><br>index还好，换个工具解析就行，就是随机数部分有点不稳定，直接用反编译出来的貌似不太行，用库函数反而出了…</p>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>本次比赛费了很大劲终于把re ak了…<br><br>对三道压轴题的评价：<br><br>conforand的ollvm是真的<font color=red><strong>辣</strong></font><font color=orange><strong>眼</strong></font><font color=yellow><strong>睛</strong></font><br><br>exchange的patch call解密函数实际上是非预期，不过魔改DES我是真逆不太动（x）<br><br>index还好，换个工具解析就行，就是随机数部分有点不稳定，直接用反编译出来的貌似不太行，用库函数反而出了…</p>
 
         
       </div>

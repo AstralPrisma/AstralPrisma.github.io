@@ -171,7 +171,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2025/04/15/tg_25/">TGCTF 2025 WriteUp（个人解出部分）</a>
+        <a class="p-name article-title" href="/2025/04/15/tg_25/">TGCTF 2025 WriteUp</a>
       </h1>
     
   
@@ -198,8 +198,9 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            Crypto方向：费克特尔：直接上factordb分解n即可
-12345678910from Crypto.Util.number import *c=670610235999012099846283721569059674725712804950807955010725968103642359765806n=810544624661213367964996895060815354972889892659483948276203088055391907479553e=65537n = 113 * 18251 * 2001511 * 214168842768662180574654641 * 916848439436544911290378588839845528581phin = 112 * 18250 * 2001510 * 214168842768662180574654640 * 916848439436544911290378588839845528580d = inverse(e, phin)m = pow(c, d, n)print(long_to_bytes(m)....  
+            个人感觉reverse题目里面解数最少的index反而不是最阴间的，起码没有conforand阴间在这里仅给出我个人解出的题目的WriteUp.
+Crypto方向：费克特尔：直接上factordb分解n即可
+12345678910from Crypto.Util.number import *c=670610235999012099846283721569059674725712804950807955010725968103642359765806n=810544624661213367964996895060815354972889892659483948276203088055391907479553e=65537n = 113 * 18251 * 2001511 * 214168842768662180574654641 * 916848439436544911290378588839845528581phin = 112 * 18250 * 2001510 * 214168842768662180574654640 * 9168484394365449112903785...  
           </div>
         
       </div>
@@ -263,8 +264,9 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            Misc方向：final_happy：jpg图片，查看作者名发现是一个base64：aV9sb3ZlX3Jvc2U&#x3D;，得到i_love_rose，用steghide输入密钥提取得到flag.txt，发现是一个wav文件，文件头的RIFF少了前三个字母，补上之后发现是摩斯电码：– ….- –. .—- -.-. -… -.– - …– … .—- … - …. . .– ….- -.–，得到m4g1cbyt3s1sthew4y，则flag为flag{m4g1c_byt3s_1s_the_w4y}.
-情书：先看flag.txt：****-&#x2F;*—-&#x2F;—-*&#x2F;****-&#x2F;****-&#x2F;*—-&#x2F;—**&#x2F;*—-&#x2F;****-&#x2F;*—-&#x2F;-****&#x2F;***–&#x2F;****-&#x2F;*—-&#x2F;—-*&#x2F;**—&#x2F;-****&#x2F;**—&#x2F;**—&#x2F;***–&#x2F;–***&#x2F;****-&#x2F;，是著名的2009贴...  
+            无意间发现还有决赛，积极参加了，题目依然很有意思
+Misc方向：final_happy：jpg图片，查看作者名发现是一个base64：aV9sb3ZlX3Jvc2U&#x3D;，得到i_love_rose，用steghide输入密钥提取得到flag.txt，发现是一个wav文件，文件头的RIFF少了前三个字母，补上之后发现是摩斯电码：– ….- –. .—- -.-. -… -.– - …– … .—- … - …. . .– ….- -.–，得到m4g1cbyt3s1sthew4y，则flag为flag{m4g1c_byt3s_1s_the_w4y}.
+情书：先看flag.txt：****-&#x2F;*—-&#x2F;—-*&#x2F;****-&#x2F;****-&#x2F;*—-&#x2F;—**&#x2F;*—-&#x2F;****-&#x2F;*—-&#x2F;-****&#x2F;***–&#x2F;****-&#x2F;*—-&#x2F;—-*&#x2F;**—&#x2F;-****&#x2F;**—&#x2F;**—&#x2F;***–&#x2F;–***&#...  
           </div>
         
       </div>
@@ -394,9 +396,9 @@ Crypto方向：reed：发现是仿射密码，flag的中间段在字符集中的
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            经过了前几次的恶心vm之后，这次最后的go vm实在逆不动了…
+            经过了前几次的恶心vm之后，这次最后的go vm实在逆不动了，就没怎么看…在这里仅给出我个人解出的题目的WriteUp.
 Reverse方向：ezDOS：发现是8086架构的DOS程序，主函数中有几个花指令，抹掉后观察逻辑：
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313413513613713813914014114214314414514614714814915015115215315415515615715815916016116216316416516616716816917017117217317...  
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149150151152153154155156157158159160161162163164...  
           </div>
         
       </div>
@@ -526,10 +528,10 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            自从newstar之后已经好久没见过持续时间这么长的比赛了，比赛题目还是有难度的，不过最后费了一些劲还是AK了所有的Reverse、第二周的misc和crypto。
+            自从newstar之后已经好久没见过持续时间这么长的比赛了，比赛还是有难度的，不过最后费了一些劲还是AK了所有的reverse、第二周的misc和crypto，题目都挺有意思的，学习和尝试了很多之前没接触到的内容.
 Crypto方向：river：由于是对称加密，直接将密文回带就可以得到明文，十六进制转换得到flag{two_dift3rs_0ff_t0_s33_th3_w0rld}.
 全网呼叫密码人：如脚本所示：
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849from Crypto.Util.number import *import gmpy2#第一部分：凯撒加密flag1 = bytearray(b&quot;dj_ey//)&quot;)for i in range(len(flag1)):    flag1[i] += 2#第二部分：维尼吉亚密码（在线求解，https://www.guballa.de/vigenere-solver，密码为crypto）flag2 = bytearray(b...  
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849from Crypto.Util.number import *import gmpy2#第一部分：凯撒加密flag1 = bytearray(b&quot;dj_ey//)&quot;)for i in range(len(flag1)):    flag1[i] += 2#第二部分：维尼吉亚密码（在线求解，https://www.guballa.de/vigenere-solver，密码为c...  
           </div>
         
       </div>
@@ -719,7 +721,7 @@ Misc方向：Hakuya Want A Girl Friend：打开txt发现是每个字节的ASCII�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.6k words 
+            5.5k words 
           </div>
         </div>
         
@@ -727,9 +729,9 @@ Misc方向：Hakuya Want A Girl Friend：打开txt发现是每个字节的ASCII�
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            注：只做了reverse方向的题目。从2月3日HGAME CTF开始到2月8日的VNCTF再到2月9日的N1CTF Junior，长线作战使得此时已经有些乏力了，三道逆向题目中，第一道（easy-re）由于缺少root过的arm架构安卓手机，在艰难分析手撕ollvm后因发现关键值需要动态调试获取而望洋兴叹，只得作罢…
+            只做了reverse方向的题目。从2月3日HGAME CTF开始到2月8日的VNCTF再到2月9日的N1CTF Junior，长线作战使得此时已经有些乏力了，三道逆向题目中，第一道（easy-re）由于缺少root过的arm架构安卓手机，在艰难分析手撕ollvm后因发现关键值需要动态调试获取而望洋兴叹…
 Reverse方向:5mc：反编译观察main：
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140...  
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421...  
           </div>
         
       </div>
@@ -793,9 +795,9 @@ Reverse方向:5mc：反编译观察main：
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            第一次遇到鸿蒙软件逆向，简单学了学之后成功做出来了，好耶
+            第一次遇到鸿蒙软件逆向，简单学了学之后成功做出来了
 签到题：欢迎！：打开容器发现是“文本替换器”，只能执行指定的指令：sed&#39;s/&#123;.\*&#125;/ text /g&#39; path，并给出了一个示例文本文档，题目说明flag在环境变量内，首先在右侧路径的位置输入环境变量：/proc/self/environ，返回以下内容：
-1RET2SHELL\_34\_656\_PORT=tcp://10.233.17.192:3000RET2SHELL\_34\_656\_SERVICE\_PORT=3000KUBERNETES\_SERVICE\_PORT=443KUBERNETES\_PORT=tcp://10.233.0.1:443RET2SHELL\_34\_388\_PORT=tcp://10.233.2.153:3000RET2SHELL\_34\_388\_SERVICE\_PORT=3000RET2SHELL\_34\_488\_SERVICE\_PORT=3000RET2SHELL\_34\_488\_PORT=tcp://10.233.29...  
+1RET2SHELL\_34\_656\_PORT=tcp://10.233.17.192:3000RET2SHELL\_34\_656\_SERVICE\_PORT=3000KUBERNETES\_SERVICE\_PORT=443KUBERNETES\_PORT=tcp://10.233.0.1:443RET2SHELL\_34\_388\_PORT=tcp://10.233.2.153:3000RET2SHELL\_34\_388\_SERVICE\_PORT=3000RET2SHELL\_34\_488\_SERVICE\_PORT=3000RET2SHELL\_34\_488\_PORT=tcp://10.233.29.73...  
           </div>
         
       </div>
@@ -859,9 +861,9 @@ Reverse方向:5mc：反编译观察main：
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            刚出新手村后正经打的第一场个人赛，单就re方向来说感觉难度还行？
+            刚出新手村后正经打的第一场个人赛，单就re方向来说感觉难度还行？上传这篇wp到github时又看了看这些题目，发觉当时认为很困难的题目现在貌似都能迎刃而解了，成长和进步总是在不知不觉中就发生了…
 Reverse方向：babyre：反编译观察主函数：
-12345678910111213141516171819202122232425262728293031__int64 __fastcall main(int a1, char **a2, char **a3)&#123;  __int64 v3; // rdx  __int64 v4; // rdx  char v6[32]; // [rsp+0h] [rbp-A0h] BYREF  char v7[32]; // [rsp+20h] [rbp-80h] BYREF  char v8[32]; // [rsp+40h] [rbp-60h] BYREF  char v9[40]; // [rsp+60h] [rbp-40h] BYREF  unsigned __int64 v10; // [rsp+88h] [rbp-18h]  v10 = __readfsqword(0x28u);  std::string::basic_string(v6, a2, a3)...  
+12345678910111213141516171819202122232425262728293031__int64 __fastcall main(int a1, char **a2, char **a3)&#123;  __int64 v3; // rdx  __int64 v4; // rdx  char v6[32]; // [rsp+0h] [rbp-A0h] BYREF  char v7[32]; // [rsp+20h] [rbp-80h] BYREF  char v8[32]; // [rsp+40h] [rbp-60h] BYREF  char v9[40]; // [rsp+60h] [rbp-40h] BYREF  unsigned __int64 v10; // [rsp+88h] [rbp-18h]  v...  
           </div>
         
       </div>
@@ -917,7 +919,7 @@ Reverse方向：babyre：反编译观察主函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            731 words 
+            738 words 
           </div>
         </div>
         
@@ -925,8 +927,9 @@ Reverse方向：babyre：反编译观察主函数：
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            EnterGame：反编译观察main函数：
-1234567891011121314151617181920212223242526272829303132333435int __fastcall main(int argc, const char **argv, const char **envp)&#123;  int v3; // eax  int v5[10]; // [rsp+8h] [rbp-138h] BYREF  __int64 s2[2]; // [rsp+30h] [rbp-110h] BYREF  __int64 v7[4]; // [rsp+40h] [rbp-100h] BYREF  char s[112]; // [rsp+60h] [rbp-E0h] BYREF  char s1[104]; // [rsp+D0h] [rbp-70h] BYREF  unsigned __int64 v10; // [rsp+138h] [rbp-8h]  v10 = __readfsqword(0x28u);  puts(&quot;Welcome to the ...  
+            挺简单的两道题
+EnterGame：反编译观察main函数：
+1234567891011121314151617181920212223242526272829303132333435int __fastcall main(int argc, const char **argv, const char **envp)&#123;  int v3; // eax  int v5[10]; // [rsp+8h] [rbp-138h] BYREF  __int64 s2[2]; // [rsp+30h] [rbp-110h] BYREF  __int64 v7[4]; // [rsp+40h] [rbp-100h] BYREF  char s[112]; // [rsp+60h] [rbp-E0h] BYREF  char s1[104]; // [rsp+D0h] [rbp-70h] BYREF  unsigned __int64 v10; // [rsp+138h] [rbp-8h]  v10 = __readfsqword(0x28u);  puts(&quot;Welcome...  
           </div>
         
       </div>
@@ -990,7 +993,7 @@ Reverse方向：babyre：反编译观察主函数：
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            注：这是我第一次参加CTF，初来乍到，当时的许多表达、做法放在现在看都是不专业甚至可笑的，就当做黑历史吧…
+            这是我第一次参加CTF，初来乍到，当时的许多专有名词的表述、题目做法放在现在看都是可笑的，就当做黑历史吧…
 赛题轮次：Week1已解出的题目：
 
 
