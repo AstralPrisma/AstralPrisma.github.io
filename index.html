@@ -138,11 +138,11 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">分类</h3>
+      <h3 class="widget-title">Categories</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">18</div>
+                <div class="category-count">19</div>
             </a>
         </div>
     </div>
@@ -158,6 +158,72 @@
     </div>
     <div id="content-body">
       
+   
+
+<article id="post-huanghe_25" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/05/26/huanghe_25/">第三届黄河流域公安院校网络安全技能挑战赛 WriteUp (Reverse方向)</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-05-25T19:00:00.000Z" itemprop="datePublished">2025-05-26</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.9k words 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            由于和京麒同天，优先打了京麒，但是把题都下下来了，比赛结束后自己做了一遍.
+签个到：Part1部分所给出的是一个加密函数的字节码，写入一个文件后ida打开并解析，发现在64bit和32bit下均只有一个异或，奇偶位分别异或的是0x31和0x58，提取密文异或后得到flag的上半段iwannaknow，对于下半段进行解包：
+123456789from secret import decryptkey = bytes.fromhex(&#x27;EC3700DFCD4F364EC54B19C5E7E26DEF6A25087C4FCDF4F8507A40A9019E3B48BD70129D0141A5B8F089F280F4BE6CCD&#x27;)ciphertext = b&#x27;\xd4z\&#x27;0L\x10\xca\x0b\x0b\xaa\x15\xbeK0&quot;\xbf\xb2\xc6\x05&#x27;cipher = decrypt(ciphertext, key)a = bytes(input(&#x27;flag呢&#x27;), encoding=&...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/05/26/huanghe_25/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
    
 
 <article id="post-xuanyuan_25" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
@@ -190,7 +256,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4k 词 
+            4k words 
           </div>
         </div>
         
@@ -257,7 +323,7 @@ Crypto：DIladila：爆破明文：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.1k 词 
+            5.1k words 
           </div>
         </div>
         
@@ -322,7 +388,7 @@ Crypto：DIladila：爆破明文：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            8k 词 
+            8k words 
           </div>
         </div>
         
@@ -387,7 +453,7 @@ Misc方向：MiniForensicsⅠ：打开虚拟机，桌面上有一个全是坐标
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.7k 词 
+            2.7k words 
           </div>
         </div>
         
@@ -452,7 +518,7 @@ Misc方向：MiniForensicsⅠ：打开虚拟机，桌面上有一个全是坐标
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            7.5k 词 
+            7.5k words 
           </div>
         </div>
         
@@ -520,7 +586,7 @@ ezFPGA：查了查FPGA的相关知识，先用Digital-IDE查看vcd信号：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k 词 
+            12k words 
           </div>
         </div>
         
@@ -586,7 +652,7 @@ Crypto方向：费克特尔：直接上factordb分解n即可
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.3k 词 
+            2.3k words 
           </div>
         </div>
         
@@ -652,7 +718,7 @@ Misc方向：final_happy：jpg图片，查看作者名发现是一个base64：aV
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            19k 词 
+            19k words 
           </div>
         </div>
         
@@ -718,7 +784,7 @@ Crypto方向：reed：发现是仿射密码，flag的中间段在字符集中的
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.7k 词 
+            6.7k words 
           </div>
         </div>
         
@@ -784,7 +850,7 @@ Reverse方向：ezDOS：发现是8086架构的DOS程序，主函数中有几个�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2k 词 
+            2k words 
           </div>
         </div>
         
@@ -850,7 +916,7 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            31k 词 
+            31k words 
           </div>
         </div>
         
@@ -917,7 +983,7 @@ Crypto方向：river：由于是对称加密，直接将密文回带就可以得
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            9.2k 词 
+            9.2k words 
           </div>
         </div>
         
@@ -983,7 +1049,7 @@ Reverse方向：ASM?Signin!：编写解密脚本：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k 词 
+            12k words 
           </div>
         </div>
         
@@ -1051,7 +1117,7 @@ Misc方向：Hakuya Want A Girl Friend：打开txt发现是每个字节的ASCII�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.5k 词 
+            5.5k words 
           </div>
         </div>
         
@@ -1117,7 +1183,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            7.7k 词 
+            7.7k words 
           </div>
         </div>
         
@@ -1183,7 +1249,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.7k 词 
+            6.7k words 
           </div>
         </div>
         
@@ -1249,7 +1315,7 @@ Reverse方向：babyre：反编译观察主函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            738 词 
+            738 words 
           </div>
         </div>
         
@@ -1315,7 +1381,7 @@ EnterGame：反编译观察main函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            28k 词 
+            28k words 
           </div>
         </div>
         
