@@ -23,7 +23,7 @@
   <meta name="description" content="这是我第一次参加CTF，初来乍到，当时的许多专有名词的表述、题目做法放在现在看都是可笑的，就当做黑历史吧… 赛题轮次：Week1已解出的题目：   题目类型 题目名称    Pwn Real Login、Game、overwrite、gdb   Reverse base64、ezAndroidStudy、Simple_encryption、ez_debug、begin   Web headach3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NewStarCTF 2024 WriteUp">
-<meta property="og:url" content="https://astralprisma.github.io/2024/11/04/newstar_24_wp/index.html">
+<meta property="og:url" content="https://astralprisma.github.io/2024/11/04/newstar_24/index.html">
 <meta property="og:site_name" content="棱晶の小窝">
 <meta property="og:description" content="这是我第一次参加CTF，初来乍到，当时的许多专有名词的表述、题目做法放在现在看都是可笑的，就当做黑历史吧… 赛题轮次：Week1已解出的题目：   题目类型 题目名称    Pwn Real Login、Game、overwrite、gdb   Reverse base64、ezAndroidStudy、Simple_encryption、ez_debug、begin   Web headach3">
 <meta property="og:locale">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://astralprisma.github.io/source/pictures/ns24_scancode.png">
 <meta property="og:image" content="https://astralprisma.github.io/source/pictures/ns24_myarm.png">
 <meta property="article:published_time" content="2024-11-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-20T19:09:43.637Z">
+<meta property="article:modified_time" content="2025-05-28T08:02:59.448Z">
 <meta property="article:author" content="Astral Prisma">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://astralprisma.github.io/source/pictures/ns24_ys.png">
@@ -150,7 +150,7 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">分类</h3>
+      <h3 class="widget-title">Categories</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
@@ -171,7 +171,7 @@
     <div id="content-body">
        
 
-<article id="post-newstar_24_wp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-newstar_24" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -203,7 +203,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            28k 词 
+            28k words 
           </div>
         </div>
         
@@ -735,9 +735,6 @@
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes, inverse</span><br><span class="line"><span class="keyword">from</span> sage.<span class="built_in">all</span> <span class="keyword">import</span> GF, EllipticCurve</span><br><span class="line"></span><br><span class="line">p = <span class="number">64408890408990977312449920805352688472706861581336743385477748208693864804529</span></span><br><span class="line">a = <span class="number">111430905433526442875199303277188510507615671079377406541731212384727808735043</span></span><br><span class="line">b = <span class="number">89198454229925288228295769729512965517404638795380570071386449796440992672131</span></span><br><span class="line">E = EllipticCurve(GF(p), [a, b])</span><br><span class="line">c1 = E(<span class="number">10968743933204598092696133780775439201414778610710138014434989682840359444219</span>, <span class="number">50103014985350991132553587845849427708725164924911977563743169106436852927878</span>)</span><br><span class="line">c2 = E(<span class="number">16867464324078683910705186791465451317548022113044260821414766837123655851895</span>, <span class="number">35017929439600128416871870160299373917483006878637442291141472473285240957511</span>)</span><br><span class="line">c_left = <span class="number">15994601655318787407246474983001154806876869424718464381078733967623659362582</span></span><br><span class="line">c_right = <span class="number">3289163848384516328785319206783144958342012136997423465408554351179699716569</span></span><br><span class="line">k = <span class="number">86388708736702446338970388622357740462258632504448854088010402300997950626097</span></span><br><span class="line"></span><br><span class="line">m = c1 + (-k) * c2</span><br><span class="line">m_x = <span class="built_in">int</span>(m[<span class="number">0</span>])</span><br><span class="line">m_y = <span class="built_in">int</span>(m[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;m_x: <span class="subst">&#123;m_x&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;m_y: <span class="subst">&#123;m_y&#125;</span>&quot;</span>)</span><br><span class="line">m_x_inv = inverse(m_x, p)</span><br><span class="line">m_y_inv = inverse(m_y, p)</span><br><span class="line">flag_part1 = (c_left * m_x_inv) % p</span><br><span class="line">flag_part2 = (c_right * m_y_inv) % p</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;flag_part1: <span class="subst">&#123;flag_part1&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;flag_part2: <span class="subst">&#123;flag_part2&#125;</span>&quot;</span>)</span><br><span class="line">flag_part1_bytes = long_to_bytes(flag_part1)</span><br><span class="line">flag_part2_bytes = long_to_bytes(flag_part2)</span><br><span class="line">flag = flag_part1_bytes + flag_part2_bytes</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Recovered flag: <span class="subst">&#123;flag.decode(<span class="string">&#x27;utf-8&#x27;</span>, errors=<span class="string">&#x27;ignore&#x27;</span>)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="没e也能玩："><a href="#没e也能玩：" class="headerlink" title="没e也能玩："></a>没e也能玩：</h3><p>真的没给e吗？e其实还是65537，直接带进去之前的脚本就好了，得出<font color=deepskyblue><strong>flag{No_course_e_can_play}</strong></font>.</p>
-<h1 id="或许是结语？什么恩情小作文"><a href="#或许是结语？什么恩情小作文" class="headerlink" title="或许是结语？什么恩情小作文"></a>或许是结语？<small><del>什么恩情小作文</del></small></h1><p>这是我第一次参加CTF，开始时我确实是什么都不懂，完全零基础参赛的，在比赛过程中学习积累了很多知识和技巧，也交到了很多朋友，顺道奠定了我之后选择逆向方向的基础<del><small>（毕竟打得最好的就这个方向）</small></del>，了解CTF前，我对网络安全方向的认知一直都是靠偶尔在B站刷出来的所谓“黑客教程”视频，这次比赛是我对网安这个领域的初探，也很奇幻般地立刻成为了我的兴趣爱好之一。</p>
-<p>NewStar CTF 2024作为一个“招新赛”，无疑是属于设计的非常完美的那一档：前几周的题目从最基本的知识和方法考起，零基础也能通过现学而掌握这些知识而不会因为门槛太高而直接放弃，难度循序渐进（对于我来说就是确保了恰好每周做一道题的时间都差不多，没有因出现重复的前几周学过的内容而变得简单，也很少有因出现跨越性的知识而导致新手完全看不懂或者不想看导致半途而废，<del><small>甚至直到现在我评价题目的难度都是用“week x”来评价，已经潜移默化地成为了我的难度评判标准</small></del>），题目也都很有意思，解题时的趣味和解出flag的瞬间带来的成就感双重推进，使得整个参赛过程都是充满做题动力的。</p>
-<p>总的来说，我很庆幸当时尝试参加了这次比赛，如果没有参与的话，或许我在大学的四年生活可能不会缺乏色彩，但也不会像如今这样丰富充实，比赛过程中认识的朋友们也都成为了我生活中不可或缺的一部分，为我的生活带来能够共享欢声笑语、随心所欲畅谈以及互相学习进步的对象<del><small>（毕竟不管是网安还是我的其他兴趣爱好比如天文，质数之类的都比较小众，我小学初中高中十二年也没找到有跟我的兴趣爱好有共同语言的人）</small></del>，感谢这次比赛提供的机会，也让我对人生的选择多了一种全新的可能，wp有结语，CTF无结语！</p>
 
         
       </div>
