@@ -138,7 +138,7 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Categories</h3>
+      <h3 class="widget-title">分類</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/Ideas/">
                 Ideas
@@ -147,7 +147,7 @@
         
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">22</div>
+                <div class="category-count">23</div>
             </a>
         </div>
     </div>
@@ -163,6 +163,74 @@
     </div>
     <div id="content-body">
       
+   
+
+<article id="post-r3_25_neon" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/07/07/r3_25_neon/">R3CTF 2025 Reverse-Neon Deceit WriteUp</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-07-07T07:00:00.000Z" itemprop="datePublished">2025-07-07</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.1k 詞 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            程序本身不管是否附加调试器运行都只会输出hello world，text中有一段被塞入了长达200KB的nop指令，且系统函数貌似全都被替换成了不正常的函数名称。
+经过观察发现了被塞入nop指令的函数行为很可疑，尝试不包含nop部分进行反编译发现不成功，仔细研究后发现是一个混淆系统函数verrx无法被ida正确理解导致其后的函数产生截断，重新反编译后认为地址0x55555556C597开始的函数是一个整体，一直到main的上方。
+此外程序多次调用了一个字符串=&gt;866&gt;83&gt;;).(;9?6.(;9?(;&gt;;(?h(h并xor了0x5A，异或后发现是各种调试器的名称，因此这是一个基于名称查找的反调试，可以patch这个字符串进行反反调试。
+main中的exit也是用于混淆的函数，实际并不会退出，更可靠的方式还是观察retn指令：
+12345678910111213141516171819202122232425262728293031323334353637383940.text:00005555555AD6D8 sub_5555555AD6D8 proc...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/07/07/r3_25_neon/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
    
 
 <article id="post-gctf_25_mtac" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
@@ -195,7 +263,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.5k words 
+            2.5k 詞 
           </div>
         </div>
         
@@ -261,7 +329,7 @@ main函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.6k words 
+            5.6k 詞 
           </div>
         </div>
         
@@ -327,7 +395,7 @@ Crypto方向：lcgp：n-1光滑，先恢复c：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.8k words 
+            2.8k 詞 
           </div>
         </div>
         
@@ -392,7 +460,7 @@ Crypto方向：lcgp：n-1光滑，先恢复c：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            3k words 
+            3k 詞 
           </div>
         </div>
         
@@ -458,7 +526,7 @@ easy_tea：程序在4148D0、414F90有花，去花得到TEA加密函数和主逻
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.9k words 
+            2.9k 詞 
           </div>
         </div>
         
@@ -524,7 +592,7 @@ easy_tea：程序在4148D0、414F90有花，去花得到TEA加密函数和主逻
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            4k words 
+            4k 詞 
           </div>
         </div>
         
@@ -591,7 +659,7 @@ Crypto：DIladila：爆破明文：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.1k words 
+            5.1k 詞 
           </div>
         </div>
         
@@ -656,7 +724,7 @@ Crypto：DIladila：爆破明文：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            8k words 
+            8k 詞 
           </div>
         </div>
         
@@ -721,7 +789,7 @@ Misc方向：MiniForensicsⅠ：打开虚拟机，桌面上有一个全是坐标
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.7k words 
+            2.7k 詞 
           </div>
         </div>
         
@@ -786,7 +854,7 @@ Misc方向：MiniForensicsⅠ：打开虚拟机，桌面上有一个全是坐标
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            7.5k words 
+            7.5k 詞 
           </div>
         </div>
         
@@ -854,7 +922,7 @@ ezFPGA：查了查FPGA的相关知识，先用Digital-IDE查看vcd信号：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k words 
+            12k 詞 
           </div>
         </div>
         
@@ -920,7 +988,7 @@ Crypto方向：费克特尔：直接上factordb分解n即可
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.3k words 
+            2.3k 詞 
           </div>
         </div>
         
@@ -986,7 +1054,7 @@ Misc方向：final_happy：jpg图片，查看作者名发现是一个base64：aV
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            19k words 
+            19k 詞 
           </div>
         </div>
         
@@ -1052,7 +1120,7 @@ Crypto方向：reed：发现是仿射密码，flag的中间段在字符集中的
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.7k words 
+            6.7k 詞 
           </div>
         </div>
         
@@ -1118,7 +1186,7 @@ Reverse方向：ezDOS：发现是8086架构的DOS程序，主函数中有几个�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2k words 
+            2k 詞 
           </div>
         </div>
         
@@ -1184,7 +1252,7 @@ easyre：发现main函数反编译不出来，在前面有一大坨花指令：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            31k words 
+            31k 詞 
           </div>
         </div>
         
@@ -1251,7 +1319,7 @@ Crypto方向：river：由于是对称加密，直接将密文回带就可以得
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            9.2k words 
+            9.2k 詞 
           </div>
         </div>
         
@@ -1317,7 +1385,7 @@ Reverse方向：ASM?Signin!：编写解密脚本：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            12k words 
+            12k 詞 
           </div>
         </div>
         
@@ -1385,7 +1453,7 @@ Misc方向：Hakuya Want A Girl Friend：打开txt发现是每个字节的ASCII�
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            5.5k words 
+            5.5k 詞 
           </div>
         </div>
         
@@ -1451,7 +1519,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            7.7k words 
+            7.7k 詞 
           </div>
         </div>
         
@@ -1517,7 +1585,7 @@ Reverse方向:5mc：反编译观察main：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            6.7k words 
+            6.7k 詞 
           </div>
         </div>
         
@@ -1583,7 +1651,7 @@ Reverse方向：babyre：反编译观察主函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            738 words 
+            738 詞 
           </div>
         </div>
         
@@ -1649,7 +1717,7 @@ EnterGame：反编译观察main函数：
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            28k words 
+            28k 詞 
           </div>
         </div>
         
