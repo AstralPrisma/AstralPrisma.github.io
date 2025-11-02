@@ -140,9 +140,19 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
+            <a class="category-link" href="/categories/Ideas-%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
+                Ideas, 出题记录
+                <div class="category-count">1</div>
+            </a>
+        
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
                 <div class="category-count">32</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Ideas/">
+                Ideas
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
@@ -163,6 +173,81 @@
     </div>
     <div id="content-body">
       
+  
+     
+
+<article id="post-about_flowers_2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/11/02/about_flowers_2/">关于二次计算型花指令的分析与改进·II (N1CTF 2025 True Operator Master 出题记录)</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-01T18:00:00.000Z" itemprop="datePublished">2025-11-02</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Ideas-%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">Ideas, 出题记录</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            – 思路转移 –在上一篇文档中，提到了这种基于二次运算的花指令：
+1234567; ...call $+5function(t) ; func(t0) = t1 ; func(t1) = t2 != t1 cmp res with t2if neq retncontinue; ...
+本次我们将不再考虑这个花指令结构的运算部分，而是尝试对其其余功能性进行拓展：
+在正常的函数调用中，带入的参数一般从rcx开始，然后是rdx，r8等，结果一般会return到rax
+那么如果我们在当前花指令的结构体基础上做出修改，使其形成这种结构：
+123456789push all regsfunction(t)---fake function---if neq retncontinuepop all regstrue function
+
+如果我们在进入花指令前保存所有需要保存的寄存器，然后在花指令运算结束后，插入一段假逻辑作为“fake function”，然后再return，之后在continue时恢复寄存器，再进行真正的运算，那么，只要fake function满足以下条件：
+
+不会干扰用来c...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/11/02/about_flowers_2/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+  
+
   
      
 
@@ -974,6 +1059,73 @@ Crypto方向：lcgp：n-1光滑，先恢复c：
     <a class="right-panel  non-pic  "
       
       href="/2025/06/08/hn_25/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+  
+
+  
+     
+
+<article id="post-about_flowers_1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/06/04/about_flowers_1/">关于二次计算型花指令的分析与改进·I</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-06-04T10:00:00.000Z" itemprop="datePublished">2025-06-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Ideas/">Ideas</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            – 引子 –在今年年初的VNCTF 2025中，遇到了一个这样的题目（不知道是不是第一次遇到了，感觉以前也见过几次，但是最有印象的是这一次了）：
+123456789101112131415161718192021222324252627282930313233v1 = rand();byte_18000E1E0 = v1 + v1 / 255;v2 = rand();byte_18000E1F0 = v2 + v2 / 255;v3 = rand();byte_18000E1F2 = v3 + v3 / 255;v4 = rand();byte_18000E200 = v4 + v4 / 255;v5 = rand();byte_18000E204 = v5 + v5 / 255;v6 = rand();byte_18000E210 = v6 + v6 / 255;v7 = rand();byte_18000E950 = v7 + v7 / 255;v8 = rand();byte_18000E220 = v8 + v8 / 255;v9 = rand();byte_18000E...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/06/04/about_flowers_1/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
