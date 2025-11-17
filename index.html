@@ -147,7 +147,7 @@
         
             <a class="category-link" href="/categories/WriteUp/">
                 WriteUp
-                <div class="category-count">33</div>
+                <div class="category-count">35</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
@@ -175,6 +175,135 @@
     </div>
     <div id="content-body">
       
+  
+     
+
+<article id="post-rctf_25_onion_det" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/11/18/rctf_25_onion_det/">RCTF 2025 Reverse-Onion &amp; Determinism WriteUp</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-11-18T02:00:00.000Z" itemprop="datePublished">2025-11-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            13k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AutoRe/" rel="tag">AutoRe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VM/" rel="tag">VM</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            Onion读取50个64位整数作为密钥，存储到0x5555555C3D00
+vm字节码加载到0x5555555B5D00
+参数结构：
+12345678910unsigned __int8 *opcodes;_QWORD reg[8];_WORD MEM[256];unsigned __int16 PC;unsigned __int16 HIPC;unsigned __int16 LOTAG;unsigned __int16 HITAG;unsigned __int16 STAKPC;bool ZFLAG;char ENDFLAG;
+
+字节码种类：
+
+
+
+字节码
+参数
+作用
+等价于
+长度
+
+
+
+0x01
+1个int16
+无条件跳转
+jmp
+3
+
+
+0x02
+1个int16
+!ZFLAG 时跳转
+jz
+3
+
+
+0x03
+1个int16
+ZFLAG 时跳转
+jnz
+3
+
+
+0xFF
+-
+结束
+exit
+1
+
+
+0x11
+1个int16
+给LOTAG赋值
+mov
+3
+
+
+0x12
+1个int16
+给HITAG赋值
+mov
+3
+
+
+0x15
+1个int8
+从LOTAG指向的文件地址处加载i...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/11/18/rctf_25_onion_det/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+  
+
   
      
 
@@ -306,6 +435,75 @@
     <a class="right-panel  non-pic  "
       
       href="/2025/11/02/about_flowers_2/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+  
+
+  
+     
+
+<article id="post-xctf_2025_riir" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2025/10/28/xctf_2025_riir/">XCTF 9th Final Reverse-Rewrite It In Rust WriteUp</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2025-10-27T16:00:00.000Z" itemprop="datePublished">2025-10-28</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/WriteUp/">WriteUp</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.6k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Rust/" rel="tag">Rust</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WASM/" rel="tag">WASM</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            主函数：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950void rewrite_it_in_rust::main::h0e6472a490b21dff(void)&#123;  int *param1;  undefined8 *param3;  int iVar1;  uint local_18;  undefined4 local_14;  int *local_10;  int *local_c;  int *local_8 [2];    param1 = (int *)gloo_utils::document::h8c9132b17b3f8613();  local_10 = param1;  web_sys::features::gen_Document::Document::body::h21cc6fa91e3c3e79(&amp;local_18,&amp;local_10);  if ((local_18 &amp; 1) =...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2025/10/28/xctf_2025_riir/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
