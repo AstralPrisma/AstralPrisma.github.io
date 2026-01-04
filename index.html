@@ -140,14 +140,14 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/WriteUp/">
-                WriteUp
-                <div class="category-count">36</div>
-            </a>
-        
             <a class="category-link" href="/categories/Ideas/">
                 Ideas
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/WriteUp/">
+                WriteUp
+                <div class="category-count">36</div>
             </a>
         
             <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
@@ -189,7 +189,7 @@
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2026/01/04/dreamhack_275_damnida/">Dreamhack #275 Damnida WriteUp</a>
+        <a class="p-name article-title" href="/2026/01/04/dreamhack_275_damnida/">Dreamhack CTF Season 1 Round #12 Damnida WriteUp</a>
       </h1>
     
   
@@ -212,13 +212,16 @@
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Indirect-Jump/" rel="tag">Indirect Jump</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Obfuscate/" rel="tag">Obfuscate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VM/" rel="tag">VM</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Indirect-Jump/" rel="tag">Indirect Jump</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Obfuscate/" rel="tag">Obfuscate</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            Initial AnalysisWe can notice that from sub_D000 to sub_1A5F88 these 372 functions are severely obfuscated, and they all have leave and  jmp rbx for indirect jump. Some of these functions has a retn or jmp rbx in the middle of the whole func, therefore the code after those place can’t be correctly recognized as a part of the function. In fact, we should pay more attention to jmp rbx and retn than endbr64, which is used to distinguish the beginning of functions, because in this case, the bound...  
+            
+link: https://dreamhack.io/wargame/challenges/275A challenge released at 2021.08.07. 09:00:00.Took about 20 hours.
+
+Initial AnalysisWe can notice that from sub_D000 to sub_1A5F88 these 372 functions are severely obfuscated, and they all have leave and  jmp rbx for indirect jump. Some of these functions has a retn or jmp rbx in the middle of the whole func, therefore the code after those place can’t be correctly recognized as a part of the function. In fact, we should pay more attention to jm...  
           </div>
         
       </div>
