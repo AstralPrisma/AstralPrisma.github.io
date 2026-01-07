@@ -142,7 +142,7 @@
       <div class="category-box">
             <a class="category-link" href="/categories/Ideas/">
                 Ideas
-                <div class="category-count">2</div>
+                <div class="category-count">3</div>
             </a>
         
             <a class="category-link" href="/categories/WriteUp/">
@@ -175,6 +175,73 @@
     </div>
     <div id="content-body">
       
+  
+     
+
+<article id="post-visualize_indirect_jump" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2026/01/08/visualize_indirect_jump/">关于间接跳转的一种分析方法</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2026-01-07T19:00:00.000Z" itemprop="datePublished">2026-01-08</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/Ideas/">Ideas</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.6k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            一种间接跳转分析方法介绍——基于跳转块地址可视化的直观分析法一、背景介绍间接跳转是一种常用的代码混淆手段，基本原理是将完整的函数运行结构“拆散”，得到若干步骤块（最低可以拆到单行汇编级别）。块与块之间的顺序衔接可以由散乱的偏移量表获取，并在外层“控制流分发器”函数内计算（中心式，可单独解析顺序）；或在每个块中重新计算下一个块地址（去中心式，顺序自包含）等方式实现。大部分的间接跳转为了反分析，往往采用第二种方法，并且往往将循环、条件等需要分支选择的逻辑也包含在跳转块主要实现逻辑之外的计算中，使整个执行流难以被直接分析。
+间接跳转的显著特征就是块与块之间的地址和调用函数的地址由寄存器通过一系列计算得到 (jump reg &#x2F; call reg)，而不是由硬编码的数据。由于计算跳转地址会干扰之前的运行结果，块的开头往往会重新加载之前保存的寄存器，然后在块的结尾计算跳转地址之前将已有的结果保存（一般是用栈来保存，也有用数据段的）；还有一些间接跳转直接用栈来模拟寄存器、栈中栈和存储数据（相当于在栈内又实现了一层只负责存储数据的结构体）。跳转块的地址计算结果往往不是定值，而是支持分...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2026/01/08/visualize_indirect_jump/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+  
+
   
      
 

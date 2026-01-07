@@ -14,23 +14,30 @@
   
 
   
-  <title>2024年新年贺词 | 棱晶の小窝</title>
+  <title>关于间接跳转的一种分析方法 | 棱晶の小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="新岁序言 · 2024隆冬下驻，万象转肃。雨雪渐促，积寸覆土；降冷骤穆，滴水成柱。凝冰三尺于河湖，聚寒三丈于房户。旧年踌躇迎暮，耄耋仍秉黯烛；新岁踯躅担务，笄丱初踏征途。年岁之轮，拓新迹于辙下；昼夜之渡，艎始发于坞上。朱赤跃翚兮日初出，黛靛蓝青兮天欲晓，黯紫丹金兮霞映彩，焦褐赭黄兮山承光。千林尽叶落之茫，百兽积丰沃之藏。乘一时之暖阳，备一冬之需飨。熊罴入洞，寻得安眠；蚺蟒遁穴，钻土蛰盘；鱼鳌潜渊，">
+  <meta name="description" content="一种间接跳转分析方法介绍——基于跳转块地址可视化的直观分析法一、背景介绍间接跳转是一种常用的代码混淆手段，基本原理是将完整的函数运行结构“拆散”，得到若干步骤块（最低可以拆到单行汇编级别）。块与块之间的顺序衔接可以由散乱的偏移量表获取，并在外层“控制流分发器”函数内计算（中心式，可单独解析顺序）；或在每个块中重新计算下一个块地址（去中心式，顺序自包含）等方式实现。大部分的间接跳转为了反分析，往往采">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2024年新年贺词">
-<meta property="og:url" content="https://astralprisma.github.io/2024/01/27/2024_xnhc/index.html">
+<meta property="og:title" content="关于间接跳转的一种分析方法">
+<meta property="og:url" content="https://astralprisma.github.io/2026/01/08/visualize_indirect_jump/index.html">
 <meta property="og:site_name" content="棱晶の小窝">
-<meta property="og:description" content="新岁序言 · 2024隆冬下驻，万象转肃。雨雪渐促，积寸覆土；降冷骤穆，滴水成柱。凝冰三尺于河湖，聚寒三丈于房户。旧年踌躇迎暮，耄耋仍秉黯烛；新岁踯躅担务，笄丱初踏征途。年岁之轮，拓新迹于辙下；昼夜之渡，艎始发于坞上。朱赤跃翚兮日初出，黛靛蓝青兮天欲晓，黯紫丹金兮霞映彩，焦褐赭黄兮山承光。千林尽叶落之茫，百兽积丰沃之藏。乘一时之暖阳，备一冬之需飨。熊罴入洞，寻得安眠；蚺蟒遁穴，钻土蛰盘；鱼鳌潜渊，">
+<meta property="og:description" content="一种间接跳转分析方法介绍——基于跳转块地址可视化的直观分析法一、背景介绍间接跳转是一种常用的代码混淆手段，基本原理是将完整的函数运行结构“拆散”，得到若干步骤块（最低可以拆到单行汇编级别）。块与块之间的顺序衔接可以由散乱的偏移量表获取，并在外层“控制流分发器”函数内计算（中心式，可单独解析顺序）；或在每个块中重新计算下一个块地址（去中心式，顺序自包含）等方式实现。大部分的间接跳转为了反分析，往往采">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-01T08:24:08.864Z">
+<meta property="og:image" content="https://astralprisma.github.io/pictures/flareon_12_8_trace.png">
+<meta property="og:image" content="https://astralprisma.github.io/pictures/flareon_12_8_trace_seg2.png">
+<meta property="og:image" content="https://astralprisma.github.io/pictures/dreamhack_275_1.png">
+<meta property="og:image" content="https://astralprisma.github.io/pictures/qwb25_tradre_vis.png">
+<meta property="og:image" content="https://astralprisma.github.io/pictures/dreamhack_275_2.png">
+<meta property="og:image" content="https://astralprisma.github.io/pictures/dreamhack_275_3.png">
+<meta property="article:published_time" content="2026-01-07T19:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-07T18:58:05.470Z">
 <meta property="article:author" content="Astral Prisma">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://astralprisma.github.io/pictures/flareon_12_8_trace.png">
   
   
     <link rel="shortcut icon" href="/XH.png">
@@ -178,7 +185,7 @@
     <div id="content-body">
        
 
-<article id="post-2024_xnhc" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-visualize_indirect_jump" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -191,7 +198,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        2024年新年贺词
+        关于间接跳转的一种分析方法
       </h1>
     
   
@@ -199,25 +206,50 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2024-01-26T16:00:00.000Z" itemprop="datePublished">2024-01-27</time>
+  <time class="dt-published" datetime="2026-01-07T19:00:00.000Z" itemprop="datePublished">2026-01-08</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-    未分类 
+  <a class="meta-cate-link" href="/categories/Ideas/">Ideas</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            365 词 
+            2.6k 词 
           </div>
         </div>
         
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="新岁序言-·-2024"><a href="#新岁序言-·-2024" class="headerlink" title="新岁序言 · 2024"></a><center>新岁序言 · 2024</center></h1><p>隆冬下驻，万象转肃。雨雪渐促，积寸覆土；降冷骤穆，滴水成柱。凝冰三尺于河湖，聚寒三丈于房户。旧年踌躇迎暮，耄耋仍秉黯烛；新岁踯躅担务，笄丱初踏征途。年岁之轮，拓新迹于辙下；昼夜之渡，艎始发于坞上。朱赤跃翚兮日初出，黛靛蓝青兮天欲晓，黯紫丹金兮霞映彩，焦褐赭黄兮山承光。千林尽叶落之茫，百兽积丰沃之藏。乘一时之暖阳，备一冬之需飨。熊罴入洞，寻得安眠；蚺蟒遁穴，钻土蛰盘；鱼鳌潜渊，匿伏不见；鸣鹊返窠，栖居巢间。日中而绸云聚，须臾而悲风号。绸云聚兮如幕，悲风号兮如怒。天寒冰坚，凌风裹而池固；风紧寒严，朔风挟而雪瀑。纷扬扬随风而下，梨花还土归根；明耀耀折光而反，晶玉展色成虹。铺素绢于寂地，散辰星于长空。向晚而风雪霁，天暮而旷景昏。雪霋云散，落雾霭之漫漫；日坠西山，还澄天于明湛。民皆归乡之日，阖家团圆之时。华灯初上，迩燃地坪之盏；明光共照，遐接天河之辉。终月惊雷，齐燃竹之响盛；除夕骇岁，汇逐邪之冀同。融聚今宵，充盈室内之暖，共祈明朝，氤氲心中之愿。</p>
+          <h2 id="一种间接跳转分析方法介绍——基于跳转块地址可视化的直观分析法"><a href="#一种间接跳转分析方法介绍——基于跳转块地址可视化的直观分析法" class="headerlink" title="一种间接跳转分析方法介绍——基于跳转块地址可视化的直观分析法"></a><center>一种间接跳转分析方法介绍</center><br><p align="right"><small>——基于跳转块地址可视化的直观分析法</small></p></h2><h3 id="一、背景介绍"><a href="#一、背景介绍" class="headerlink" title="一、背景介绍"></a>一、背景介绍</h3><p><strong>间接跳转</strong>是一种常用的代码混淆手段，基本原理是将完整的函数运行结构“拆散”，得到若干步骤块（最低可以拆到单行汇编级别）。块与块之间的顺序衔接可以由散乱的偏移量表获取，并在外层“控制流分发器”函数内计算（中心式，可单独解析顺序）；或在每个块中重新计算下一个块地址（去中心式，顺序自包含）等方式实现。大部分的间接跳转为了反分析，往往采用第二种方法，并且往往将循环、条件等需要分支选择的逻辑也包含在跳转块主要实现逻辑之外的计算中，使整个执行流难以被直接分析。</p>
+<p>间接跳转的显著特征就是<strong>块与块之间的地址和调用函数的地址由寄存器通过一系列计算得到 (jump reg &#x2F; call reg)，而不是由硬编码的数据</strong>。由于计算跳转地址会干扰之前的运行结果，块的开头往往会<strong>重新加载之前保存的寄存器</strong>，然后在块的结尾计算跳转地址之前<strong>将已有的结果保存</strong>（一般是用栈来保存，也有用数据段的）；还有一些间接跳转直接用栈来模拟寄存器、栈中栈和存储数据（相当于在栈内又实现了一层只负责存储数据的结构体）。跳转块的地址计算结果往往不是定值，而是支持<strong>分支功能</strong>（如果是定值就可以强行patch汇编，直接计算好跳转结果，覆盖到跳转块末尾的计算地址部分，然后整体定义为一个函数并用工具进行自动反编译，这会导致其混淆性大大降低），一个块A可能在前n次都跳向下一个块B，但某次循环结束后就开始跳向新的块C，由于patch时往往不好实现根据分支选择不同块进行跳跃的逻辑（循环次数未知、切换触发条件是否与输出相关未知、可修改字节数量太小无处可patch等），patch后反编译出来的逻辑大概率会是<strong>残缺不全</strong>的，难以一次性直观看出全部逻辑，导致间接跳转常常更难被分析。</p>
+<p>间接跳转的常用分析方法之一是<strong>trace</strong>，如在完整trace中筛除无关汇编行，或者分析跳转块的模式之后找到其关键逻辑汇编行，然后在trace过程中只记录这些行的执行等。由于跳转块的模式千变万化，形式灵活，且关键汇编行不一定在每个间接跳转块中的位置固定，甚至可能还有附加了运算混淆的间接跳转，每个间接跳转块的结构差异巨大，运算极其复杂，真正的关键逻辑看起来只是像随机嵌在其中不起眼的一行。这些情况下，试图使用上述的方法将变得困难。本文介绍一种更加直观的、更为普适的间接跳转分析方法。</p>
+<h3 id="二、方法概述"><a href="#二、方法概述" class="headerlink" title="二、方法概述"></a>二、方法概述</h3><p>间接跳转的核心和关键是<strong>jmp reg</strong>和<strong>call reg</strong>的汇编指令。绝大部分间接跳转都使用这些指令来实现跳转功能，正常情况下，每个块也应当都具备这些指令中的一种。因此，我们可以先对这条指令进行trace。如果每个跳转块尚且能被识别为单独的函数，亦可通过每个函数的开头来定位，但最保险还是直接hook这个模式的指令。可以使用idapython来编写trace脚本（但运行记录速度很慢），亦可使用gdb或者intel pin。核心思路就是<strong>先定位提取目标地址范围内的所有间接跳转指令的地址，然后再在trace脚本中对这些地址进行hook，记录其被执行的顺序，甚至可以顺手记录寄存器值等</strong>，相关脚本编写示例将在下文的两个实例中给出。成功获取调用顺序后，用散点图或折线图可视化按顺序的地址执行顺序，观察<strong>循环特征</strong>和特殊模式（如256轮的循环构造、和明文&#x2F;密文长度相同的循环等）。亦可编写脚本，直接贪婪匹配hook日志中的最大循环乃至嵌套循环，将冗长的日志折叠成带循环的易于分析的版本（见下文实例2）。</p>
+<p>下面列举一些使可视化更易于观察出特征模式，减少不必要的分析和逻辑揣测的“小窍门”：</p>
+<ul>
+<li>首先，仅就CTF题目来说，大部分程序要求输入由控制台传入。<strong>如果输入逻辑也被包含在间接跳转的块中，可以在hook脚本中添加一个线程用于时长计算，若干秒未触发新的hook则添加一条标记行，然后在程序要求输入时等待若干秒，触发插入标记行，由此可以区分哪些逻辑发生在输入之前（与输入无关），哪些逻辑发生在输入之后</strong>，甚至可以比较得出与输出强相关的逻辑（如加密，校验）。</li>
+<li><strong>如果间接跳转块自身不构成函数&#x2F;间接跳转只位于单个函数内，可以查找有无间接调用（call reg），若有，大概率是库函数（如read，write，puts等），可以加以标记和划分跳转块的逻辑区间</strong>（见下文实例2）。</li>
+<li><strong>如果程序是单字节校验，或者有一些便于爆破的弱校验（如输入长度），亦可通过hook的log长度来进行侧信道爆破</strong>（比总指令数更稳定）。</li>
+<li><strong>如果程序存在多个函数，且多个函数内均含有间接跳转，若确信每个函数内的间接跳转（不是call）不会跳转到别的函数所在的地址范围内，可以根据每个函数的地址范围对间接跳转块的地址做分类，用不同的颜色可视化，以此确认每个函数负责的业务逻辑</strong>（见下文实例1）。</li>
+</ul>
+<p>以下给出两个实例。</p>
+<h3 id="三、具体实例"><a href="#三、具体实例" class="headerlink" title="三、具体实例"></a>三、具体实例</h3><h4 id="1-FlareOn-12-第8题"><a href="#1-FlareOn-12-第8题" class="headerlink" title="1. FlareOn 12 第8题"></a>1. <a href="https://astralprisma.github.io/2025/10/08/flareon_12/">FlareOn 12 第8题</a></h4><p>该题目实现了一个窗口化的flag校验器，有多个关键逻辑相关函数被施加了间接跳转，且各函数之间的间接跳转块互相独立，因此可以用函数地址范围进行分类，并在可视化时用不同色彩上色。但此题目的坑点在于校验值在填入每个数字的过程中就自动生成了，并不是最后计算的，因此等待若干秒的方法未能正确发挥其效果，详情见标题链接。可视化图像如下：</p>
+<p><img src="https://astralprisma.github.io/pictures/flareon_12_8_trace.png" alt="FlareOn 12 #8"></p>
+<p><img src="https://astralprisma.github.io/pictures/flareon_12_8_trace_seg2.png" alt="FlareOn 12 #8"></p>
+<p>在此题目的解出过程中，由于没有明显的结构化加密过程，可视化的方法主要贡献是用于区分和确定每个函数所负责的逻辑，最终还是要回到具体的汇编分析中，但可视化依旧便利了初始的分析过程，比起在每个函数下断点的方法更整体直观，更加行之有效。</p>
+<h4 id="2-Dreamhack-CTF-Season-1-Round-12-Damnida"><a href="#2-Dreamhack-CTF-Season-1-Round-12-Damnida" class="headerlink" title="2. Dreamhack CTF Season 1 Round #12 Damnida"></a>2. <a href="https://astralprisma.github.io/2026/01/04/dreamhack_275_damnida/">Dreamhack CTF Season 1 Round #12 Damnida</a></h4><p>此题目是由一位外国朋友向我询问的，因此wp为英文。在此题目中，该方法起到了十分关键的作用。由于此题目所有的间接跳转都在同一个区块内（没有明显边界），且密钥构建、加密和校验逻辑十分结构化（甚至是最基本的XTEA，只是是64bit的版本，位移数量乘以了2，delta和轮数有所修改），因此间接跳转的可视化极其直观：</p>
+<p><img src="https://astralprisma.github.io/pictures/dreamhack_275_1.png" alt="damnida"></p>
+<p>类似的还有去年强网杯的逆向题tradre，能直接从图中看出AES的十轮循环：</p>
+<p><img src="https://astralprisma.github.io/pictures/qwb25_tradre_vis.png" alt="tradre"></p>
+<p>在Damnida这题中，输入逻辑是嵌在间接跳转中的，因此可以用等待数秒的逻辑进行区分：</p>
+<p><img src="https://astralprisma.github.io/pictures/dreamhack_275_2.png" alt="tradre"></p>
+<p>从其中可以看出两个大循环（两个看上去像多条直线的区域）和两个小循环（右侧的两个，前一个较窄，是一个4轮循环，用于构建密钥和delta，后一个是16轮循环的XTEA加密，但是一轮块数较多因此显得松散）。由于循环众多，加上循环优化的脚本（见标题链接wp）后就可以轻松将块数执行次数降下来：</p>
+<p><img src="https://astralprisma.github.io/pictures/dreamhack_275_3.png" alt="tradre"></p>
+<p>然后对每个循环内的内容和循环之间的内容进行分段分析即可。此题目的间接跳转地址计算被混淆在了每个块中均匀分布，并且用mmap创建的匿名映射来存储数据（相当于一个小型vm或是结构体，但是指令还是用的正常的汇编指令），分析每个块时可以寻找块与块之间的共同点，以及一些经常被访问的偏移量，来区分每个偏移量的作用。</p>
+<h3 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h3><p>本文提供了一种<strong>侧信道的、结合图像分析和模式感知的方法</strong>来<strong>更为普适地分析间接跳转块与块之间的衔接顺序，并用可视化的方式将其直观展示出来</strong>。可视化的主要目的是提供不同函数地址界限、不同逻辑界限的辨认和便于认出重复模式及其重复次数，从而推断其作用和重要性。尽管该方法能以图像形式直观展示间接跳转块之间的执行顺序，由于不同人分析执行流的方法不同，该方法可能不适用于所有人（觉得图示难以理解等）。</p>
 
         
       </div>
@@ -230,22 +262,22 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left "
-    
-      href="/2024/11/04/newstar_24/"
-      title="NewStarCTF 2024 WriteUp"
+  <a class="article-nav-btn left  disabled "
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
-      
-        NewStarCTF 2024 WriteUp
         
     </p>
   </a>
-  <a class="article-nav-btn right  disabled "
+  <a class="article-nav-btn right "
+    
+      href="/2026/01/04/dreamhack_275_damnida/"
+      title="Dreamhack CTF Season 1 Round #12 Damnida WriteUp"
      >
 
     <p class="title-text">
+      
+        Dreamhack CTF Season 1 Round #12 Damnida WriteUp
         
     </p>
     <i class="fa-solid fa-angle-right"></i>
