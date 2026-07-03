@@ -35,8 +35,8 @@
 <meta property="article:author" content="Astral Prisma">
 <meta property="article:tag" content="Golang">
 <meta property="article:tag" content="Obfuscate">
-<meta property="article:tag" content="Frida Hook">
 <meta property="article:tag" content="VM">
+<meta property="article:tag" content="Frida Hook">
 <meta property="article:tag" content="Rust">
 <meta property="article:tag" content="C#">
 <meta property="article:tag" content="R2R">
@@ -134,11 +134,11 @@
       <div class="subtitle">星界棱晶 </div>
       <div class="link-list">
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/454936579" title="Bilibili"><image src=https://www.bilibili.com/favicon.ico></image></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/454936579" title="Bilibili"><i class="changemehttps://www.bilibili.com/favicon.ico"></i></a>
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://www.primegrid.com/show_user.php?userid=1243718" title="PrimeGrid"><image src=https://www.primegrid.com/images/favicon_32.png></image></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://www.primegrid.com/show_user.php?userid=1243718" title="PrimeGrid"><i class="changemehttps://www.primegrid.com/images/favicon_32.png"></i></a>
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/AstralPrisma" title="GitHub"><image src=https://github.githubassets.com/favicons/favicon.png></image></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/AstralPrisma" title="GitHub"><i class="changemehttps://github.githubassets.com/favicons/favicon.png"></i></a>
          
       </div>  
     </div>
@@ -165,13 +165,13 @@
                 <div class="category-count">41</div>
             </a>
         
-            <a class="category-link" href="/categories/RW/">
-                RW
+            <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
+                出题记录
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
-                出题记录
+            <a class="category-link" href="/categories/RW/">
+                RW
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -260,13 +260,13 @@
 <h2 id="MTP-again："><a href="#MTP-again：" class="headerlink" title="MTP again："></a>MTP again：</h2><p>观察发现，flag是与和自己一样长度的随机OTP进行了8倍于自己长度的异或，flag原长度为70字节，共计560个二进制位，而密文也有560个，且注意到加密所用到的密钥被严格要求汉明重量为自身长度的一半（即对于560个二进制位，其中有280个1，280个0），则有以下关系：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. HammingWeight(OTP0~560) = 280</span><br><span class="line">2. 由于异或本身的自反性，enc = flag ^ OTP  ⇒  OTP = flag ^ enc</span><br><span class="line">3. HammingWeight(flag ^ enc0~560) = HammingWeight(OTP0~560) = 280</span><br></pre></td></tr></table></figure>
 <p>有：</p>
-<p><img src="/pictures/npc25_mtp1.png" title="mtp1"><br></p>
+<p><img src="/source/pictures/npc25_mtp1.png" title="mtp1"><br></p>
 <p>又因为异或满足性质：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a xor b = a + b - <span class="number">2</span> * a * b</span><br></pre></td></tr></table></figure>
 <p>所以有：</p>
-<p><img src="/pictures/npc25_mtp2.png" title="mtp2"><br></p>
+<p><img src="/source/pictures/npc25_mtp2.png" title="mtp2"><br></p>
 <p>化简得到：</p>
-<p><img src="/pictures/npc25_mtp3.png" title="mtp3"><br></p>
+<p><img src="/source/pictures/npc25_mtp3.png" title="mtp3"><br></p>
 <p>其中左侧的(1-2*enc)是待求矩阵的系数，flag每一位的取值只能是0或1，等号右侧为常数项，于是我们获得了560个线性方程，而flag恰好有560个二进制位，因此可以得到结果，编写脚本进行解矩阵： </p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 提取密文</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;output.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    encs = [<span class="built_in">int</span>(line.strip()) <span class="keyword">for</span> line <span class="keyword">in</span> f]</span><br><span class="line"><span class="comment"># 转换为矩阵，计算每个密文的汉明重量</span></span><br><span class="line">EncMatrix = []</span><br><span class="line">SumEncs = []</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> encs:</span><br><span class="line">    bin_str = <span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">560</span>)</span><br><span class="line">    bits = [<span class="built_in">int</span>(bit) <span class="keyword">for</span> bit <span class="keyword">in</span> bin_str]</span><br><span class="line">    EncMatrix.append(bits)</span><br><span class="line">    SumEncs.append(<span class="built_in">sum</span>(bits))</span><br><span class="line">Coefficient = np.array(EncMatrix, dtype=np.int64) <span class="comment"># 系数矩阵，560*560</span></span><br><span class="line">SumEncs = np.array(SumEncs, dtype=np.int64) <span class="comment">#560个密文的汉明重量</span></span><br><span class="line"><span class="comment"># 枚举flag所有的汉明重量可能值</span></span><br><span class="line"><span class="keyword">for</span> PossibleHW <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">561</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;当前尝试的flag汉明重量为: <span class="subst">&#123;PossibleHW&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="comment"># 检查所有右侧常数项是否为整数且非负</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> np.<span class="built_in">all</span>((SumEncs + PossibleHW - <span class="number">280</span>) % <span class="number">2</span> == <span class="number">0</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    Constant = (SumEncs + PossibleHW - <span class="number">280</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> np.<span class="built_in">any</span>(Constant &lt; <span class="number">0</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 解线性方程组</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        x, residuals, rank, _ = np.linalg.lstsq(Coefficient, Constant, rcond=<span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">except</span> np.linalg.LinAlgError:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 由于精度可能不够高，这里要手动筛分得到的解（二值化）并验证</span></span><br><span class="line">    candidate_b = np.<span class="built_in">round</span>(x).clip(<span class="number">0</span>, <span class="number">1</span>).astype(np.int64)</span><br><span class="line">    <span class="keyword">if</span> np.<span class="built_in">sum</span>(candidate_b) != PossibleHW:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 检查方程组是否近似满足</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> np.allclose(Coefficient.dot(candidate_b), Constant, atol=<span class="number">1e-5</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 转换为字节</span></span><br><span class="line">    flag_bytes = <span class="built_in">bytearray</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">560</span>, <span class="number">8</span>):</span><br><span class="line">        byte_bits = candidate_b[i:i+<span class="number">8</span>]</span><br><span class="line">        byte_val = <span class="built_in">int</span>(<span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, byte_bits)), <span class="number">2</span>)</span><br><span class="line">        flag_bytes.append(byte_val)</span><br><span class="line">    <span class="comment"># 解码并验证格式</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        flag = flag_bytes.decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> flag.startswith(<span class="string">&#x27;flag&#123;&#x27;</span>):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;找到汉明重量<span class="subst">&#123;PossibleHW&#125;</span>对应的flag: <span class="subst">&#123;flag&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">except</span> UnicodeDecodeError:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;未找到有效解&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>得到flag：<font color=deepskyblue><strong>flag{__seesee_Neutrality_of_SEETF_2022_it_is_easy_just_LLL&amp;&amp;algebra__}</strong></font>.</p>

